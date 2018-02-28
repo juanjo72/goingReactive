@@ -10,7 +10,7 @@ import UIKit
 
 final class App {
     
-    let gateway: Gateway
+    let gateway: Gateway & ReactiveGateway
     
     lazy var rootNavigationController: UINavigationController = {
         let navigationController = UINavigationController()
@@ -21,7 +21,7 @@ final class App {
     
     // MARK: Lifecycle
     
-    init(window: UIWindow, gateway: Gateway) {
+    init(window: UIWindow, gateway: Gateway & ReactiveGateway) {
         self.gateway = gateway
         window.rootViewController = rootNavigationController
     }
@@ -29,13 +29,19 @@ final class App {
     // MARK: Public
     
     func launch() {
-        showAllStationsController(on: rootNavigationController)
+        showReactiveAllStationsController(on: rootNavigationController)
     }
     
     func showAllStationsController(on navigationController: UINavigationController) {
         let allStationsResource = BicingStation.allStations
         let viewModel = BicingStationsViewModel(resorce: allStationsResource, gateway: gateway)
         let allStationsVC = BicingStationsViiewController(viewModel: viewModel)
+        navigationController.pushViewController(allStationsVC, animated: true)
+    }
+    
+    func showReactiveAllStationsController(on navigationController: UINavigationController) {
+        let allStationsResource = BicingStation.allStations
+        let allStationsVC = ReactiveBicingViewController(allResource: allStationsResource, gateway: gateway)
         navigationController.pushViewController(allStationsVC, animated: true)
     }
 }

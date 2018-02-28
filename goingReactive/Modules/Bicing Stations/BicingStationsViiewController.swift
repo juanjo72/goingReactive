@@ -6,7 +6,6 @@
 //  Copyright © 2018 Juanjo García Villaescusa. All rights reserved.
 //
 
-import RxSwift
 import UIKit
 import SnapKit
 
@@ -52,8 +51,6 @@ class BicingStationsViiewController: UIViewController {
         return table
     }()
     
-    let disposeBag = DisposeBag()
-    
     // MARK: Lifecycle
     
     init(viewModel: BicingStationsViewModel) {
@@ -90,33 +87,25 @@ class BicingStationsViiewController: UIViewController {
     }
     
     private func setObservers() {
-        viewModel.stations
-            .asObservable()
-            .subscribe(onNext: { [unowned self] stations in
-                guard let _ = stations else { return }
-                self.spinner.stopAnimating()
-                self.stationsTable.reloadData()
-            })
-            .disposed(by: disposeBag)
-        viewModel.error
-            .asObservable()
-            .subscribe(onNext: { [unowned self] error in
-                guard let error = error else { return }
-                self.spinner.stopAnimating()
-                self.display(error: error)
-            })
-            .disposed(by: disposeBag)
+        viewModel.didLoadStations = { [unowned self] stations in
+            self.spinner.stopAnimating()
+            self.stationsTable.reloadData()
+        }
+        viewModel.didLoadError = { [unowned self] error in
+            self.spinner.stopAnimating()
+            self.display(error: error)
+        }
     }
 }
 
 extension BicingStationsViiewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.stations.value?.count ?? 0
+        return viewModel.stations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-        let station = viewModel.stations.value![indexPath.row]
+        let station = viewModel.stations[indexPath.row]
         cell.textLabel?.text = station.address
         return cell
     }

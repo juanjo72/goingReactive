@@ -20,6 +20,9 @@
 		81E28C4720472363002F5B73 /* GatewayError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E47DBD2043EF70001C78CE /* GatewayError.swift */; };
 		81E28C482047236D002F5B73 /* TimeIntervalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E47DC12043F1E4001C78CE /* TimeIntervalExtensions.swift */; };
 		81E28C4920472372002F5B73 /* DefaultGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81953F1B2041E078001D0D0F /* DefaultGateway.swift */; };
+		81E28C4C20472596002F5B73 /* ReactiveBicingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E28C4B20472596002F5B73 /* ReactiveBicingViewController.swift */; };
+		81E28C4E20472663002F5B73 /* ReactiveBicingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E28C4D20472663002F5B73 /* ReactiveBicingViewModel.swift */; };
+		81E28C50204727BC002F5B73 /* EntitiesLoadEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E28C4F204727BC002F5B73 /* EntitiesLoadEvent.swift */; };
 		81E47DB82042D2A6001C78CE /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E47DB72042D2A6001C78CE /* UIViewControllerExtensions.swift */; };
 		868F013BF23E7F5D6AC37D39 /* Pods_goingReactive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3537069AB1CFC92BDF8685BB /* Pods_goingReactive.framework */; };
 /* End PBXBuildFile section */
@@ -49,6 +52,9 @@
 		81953F1B2041E078001D0D0F /* DefaultGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultGateway.swift; sourceTree = "<group>"; };
 		81953F1E2041E876001D0D0F /* BicingStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BicingStation.swift; sourceTree = "<group>"; };
 		81D326602041FE0500338FFC /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		81E28C4B20472596002F5B73 /* ReactiveBicingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveBicingViewController.swift; sourceTree = "<group>"; };
+		81E28C4D20472663002F5B73 /* ReactiveBicingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveBicingViewModel.swift; sourceTree = "<group>"; };
+		81E28C4F204727BC002F5B73 /* EntitiesLoadEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntitiesLoadEvent.swift; sourceTree = "<group>"; };
 		81E47DB72042D2A6001C78CE /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		81E47DB92042D674001C78CE /* URLResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLResource.swift; sourceTree = "<group>"; };
 		81E47DBB2043EECF001C78CE /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -133,6 +139,7 @@
 		81953F192041E054001D0D0F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				81E28C4A2047256C002F5B73 /* Bicing Stations Reactive */,
 				818E51912041EC8B0089B2BE /* Bicing Stations */,
 			);
 			path = Modules;
@@ -142,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				81E47DBF2043F0A0001C78CE /* Protocols.swift */,
+				81E28C4F204727BC002F5B73 /* EntitiesLoadEvent.swift */,
 				81E47DB92042D674001C78CE /* URLResource.swift */,
 				81E47DBB2043EECF001C78CE /* Result.swift */,
 				81E47DBD2043EF70001C78CE /* GatewayError.swift */,
@@ -157,6 +165,15 @@
 				81953F1E2041E876001D0D0F /* BicingStation.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		81E28C4A2047256C002F5B73 /* Bicing Stations Reactive */ = {
+			isa = PBXGroup;
+			children = (
+				81E28C4B20472596002F5B73 /* ReactiveBicingViewController.swift */,
+				81E28C4D20472663002F5B73 /* ReactiveBicingViewModel.swift */,
+			);
+			path = "Bicing Stations Reactive";
 			sourceTree = "<group>";
 		};
 		81E47DB62042D28B001C78CE /* Extensions */ = {
@@ -323,11 +340,14 @@
 				81953F082041E028001D0D0F /* BicingStationsViiewController.swift in Sources */,
 				81E28C4720472363002F5B73 /* GatewayError.swift in Sources */,
 				81E28C442047234C002F5B73 /* Protocols.swift in Sources */,
+				81E28C4C20472596002F5B73 /* ReactiveBicingViewController.swift in Sources */,
 				81953F062041E028001D0D0F /* AppDelegate.swift in Sources */,
 				81D326612041FE0500338FFC /* App.swift in Sources */,
+				81E28C4E20472663002F5B73 /* ReactiveBicingViewModel.swift in Sources */,
 				818E51932041ECA70089B2BE /* BicingStationsViewModel.swift in Sources */,
 				81E28C482047236D002F5B73 /* TimeIntervalExtensions.swift in Sources */,
 				81E47DB82042D2A6001C78CE /* UIViewControllerExtensions.swift in Sources */,
+				81E28C50204727BC002F5B73 /* EntitiesLoadEvent.swift in Sources */,
 				81E28C4520472350002F5B73 /* URLResource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

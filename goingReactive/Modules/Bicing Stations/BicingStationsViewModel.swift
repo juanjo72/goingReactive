@@ -13,18 +13,19 @@ final class BicingStationsViewModel {
     
     // MARK: Injected
     
+    var didLoadStations: (([BicingStation]) -> Void)?
+    var didLoadError:  ((LocalizedError) -> Void)?
+    var stations: [BicingStation] = []
+    
     let resource: URLResource<[BicingStation]>
     let gateway: Gateway
-    
-    // MARK: Observables
-    
-    let stations = Variable<[BicingStation]?>(nil)
-    let error =  Variable<LocalizedError?>(nil)
+
     
     private var allStations: [BicingStation]? {
         didSet {
             guard let all = allStations else { return }
-            stations.value = all
+            stations = all
+            didLoadStations?(all)
         }
     }
     
@@ -44,7 +45,7 @@ final class BicingStationsViewModel {
                 self.allStations = stations
                 break
             case .failure(let error):
-                self.error.value = error
+                self.didLoadError?(error)
                 break
             }
         }
@@ -52,6 +53,8 @@ final class BicingStationsViewModel {
     
     func findStations(token: String) {
         guard let allStations = allStations else { return }
-        stations.value = token.isEmpty  ? allStations : allStations.filter { $0.address.localizedCaseInsensitiveContains(token) }
+        let results = token.isEmpty  ? allStations : allStations.filter { $0.address.localizedCaseInsensitiveContains(token) }
+        stations = results
+        didLoadStations?(results)
     }
 }

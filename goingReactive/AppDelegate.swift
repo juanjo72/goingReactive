@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    lazy var gateway: Gateway = {
+    lazy var gateway: Gateway & ReactiveGateway = {
        return DefaultGateway()
     }()
 

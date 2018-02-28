@@ -6,7 +6,7 @@
 //  Copyright © 2018 Juanjo García Villaescusa. All rights reserved.
 //
 
-import Foundation
+import RxSwift
 
 extension URLRequest {
     init<T>(resource: URLResource<T>) {
@@ -50,5 +50,22 @@ public final class DefaultGateway: Gateway {
             }
             }
             .resume()
+    }
+}
+
+extension DefaultGateway: ReactiveGateway {
+    func request<T>(resource: URLResource<T>) -> Observable<T> {
+        return Observable.create { [unowned self] observer -> Disposable in
+            self.request(resource: resource) { result in
+                switch result {
+                case .success(let value):
+                    observer.onNext(value)
+                    observer.onCompleted()
+                case .failure(let error):
+                    observer.onError(error)
+                }
+            }
+            return Disposables.create()
+        }
     }
 }
