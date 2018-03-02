@@ -52,6 +52,7 @@
 		81953F1B2041E078001D0D0F /* DefaultGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultGateway.swift; sourceTree = "<group>"; };
 		81953F1E2041E876001D0D0F /* BicingStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BicingStation.swift; sourceTree = "<group>"; };
 		81D326602041FE0500338FFC /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		81D65AFE2049A38F0006D586 /* MVVM - Going Reactive.key */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MVVM - Going Reactive.key"; sourceTree = "<group>"; };
 		81E28C4B20472596002F5B73 /* ReactiveBicingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveBicingViewController.swift; sourceTree = "<group>"; };
 		81E28C4D20472663002F5B73 /* ReactiveBicingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveBicingViewModel.swift; sourceTree = "<group>"; };
 		81E28C4F204727BC002F5B73 /* EntitiesLoadEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntitiesLoadEvent.swift; sourceTree = "<group>"; };
@@ -89,6 +90,7 @@
 		81953EF92041E028001D0D0F = {
 			isa = PBXGroup;
 			children = (
+				81D65AFE2049A38F0006D586 /* MVVM - Going Reactive.key */,
 				81953F042041E028001D0D0F /* goingReactive */,
 				81953F032041E028001D0D0F /* Products */,
 				AACD7A6C373DADA9D37887C1 /* Pods */,
@@ -111,6 +113,7 @@
 				81953F172041E03C001D0D0F /* App */,
 				81953F192041E054001D0D0F /* Modules */,
 				81953F182041E04B001D0D0F /* Model */,
+				81953F1A2041E060001D0D0F /* Gateway */,
 				81953F0C2041E028001D0D0F /* Assets.xcassets */,
 				81953F0E2041E028001D0D0F /* LaunchScreen.storyboard */,
 				81953F112041E028001D0D0F /* Info.plist */,
@@ -131,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				81953F1D2041E84D001D0D0F /* Entities */,
-				81953F1A2041E060001D0D0F /* Gateway */,
 			);
 			path = Model;
 			sourceTree = "<group>";

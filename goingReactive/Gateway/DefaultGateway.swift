@@ -15,7 +15,7 @@ extension URLRequest {
     }
 }
 
-public final class DefaultGateway: Gateway {
+final class DefaultGateway: Gateway {
 
     // MARK: Session
     

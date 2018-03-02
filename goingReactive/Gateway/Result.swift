@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum Result<Value> {
+enum Result<Value> {
     case success(Value)
     case failure(LocalizedError)
     

@@ -19,7 +19,10 @@ final class ReactiveBicingViewModel {
     
     // MARK: Lifecycle
     
-    init(allResource: URLResource<[BicingStation]>, gateway: ReactiveGateway, refreshDriver: Driver<Void>, searchDriver: Driver<String>) {
+    init(allResource: URLResource<[BicingStation]>,
+         gateway: ReactiveGateway,
+         refreshDriver: Driver<Void>,
+         searchDriver: Driver<String>) {
         // sequence of gateway events
         let loadEventsDriver  = refreshDriver
             .startWith(())
